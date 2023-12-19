@@ -1,0 +1,12 @@
+{
+    "credentials": {
+        "qa": {
+            "userName": "pocemail@check.com",
+            "password": "sainix123"
+        },
+        "prod": {
+            "userName": "pocemail@check.com",
+            "password": "sainix123"
+        }
+    }
+}

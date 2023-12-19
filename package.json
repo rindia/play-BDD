@@ -1,0 +1,48 @@
+{
+  "name": "playwright-bdd-intsof",
+  "version": "1.0.4",
+  "description": "Cucumber is a popular behavior-driven development (BDD) tool that allows developers and stakeholders to collaborate on defining and testing application requirements in a human-readable format.  TypeScript is a powerful superset of JavaScript that adds optional static typing, making it easier to catch errors before runtime. By combining these two tools, we can create more reliable and maintainable tests.",
+  "main": "index.js",
+  "scripts": {
+    "debug": "cross-env ENV=prod PWDEBUG=1 DEBUG=pw:api cucumber-js --config=config/cucumber.js",
+    "test:reportPortal": "cucumber-js -f ./config/report-portal-formatter.js --config=config/cucumber.js",
+    "test:local": "cucumber-js --config=config/cucumber.js",
+    "posttest": "npx ts-node src/utility/report/report.ts",
+    "test:failed": "cucumber-js -p rerun @rerun.txt"
+  },
+  "keywords": [
+    "cucumber",
+    "cucumber - TS",
+    "playwright-cucumber"
+  ],
+  "author": "Rohit",
+  "license": "ISC",
+  "devDependencies": {
+    "@cucumber/cucumber": "^9.0.1",
+    "@playwright/test": "1.40.1",
+    "allure-commandline": "^2.25.0",
+    "allure-cucumberjs": "^2.10.0",
+    "allure-playwright": "^2.10.0",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.0.3",
+    "fs-extra": "^11.1.1",
+    "multiple-cucumber-html-reporter": "^3.3.0",
+    "ts-node": "^10.9.1",
+    "winston": "^3.8.2"
+  },
+  "dependencies": {
+    "@reportportal/agent-js-cucumber": "^5.2.2",
+    "reportportal-client": "^5.1.0",
+    "strip-ansi": "^7.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "NA"
+  },
+  "files": [
+    "config/",
+    "src/",
+    "readme.md",
+    "tsconfig.json"
+  ]
+}
