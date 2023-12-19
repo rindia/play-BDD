@@ -1,22 +1,25 @@
 pipeline {
     agent any
 
+    parameters {
+        string(name: 'ENV', defaultValue: 'apiQA', description: 'Environment')
+        string(name: 'TAGS', defaultValue: '@api', description: 'Tags')
+    }
+
     stages {
-        stage('Checkout') {
+        stage('Build Docker Image') {
             steps {
-                checkout scm
+                script {
+                   docker build -t play-bdd:local .
+                }
             }
         }
 
-        stage('Install Dependencies') {
+        stage('Run Tests in Docker conatiner') {
             steps {
-                sh 'npm install'
-            }
-        }
-
-        stage('Run Tests') {
-            steps {
-                sh 'npm run test'
+                script {
+                  docker run --rm play-bdd:local -e ENV=${ENV} -e TAGS=${TAGS}
+                }
             }
         }
     }

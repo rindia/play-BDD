@@ -3,17 +3,22 @@ import {Browser, BrowserContext} from "@playwright/test"
 import {getBrowser} from "../utility/browser/BrowserManager";
 import {getEnvironment} from "../utility/env/Enviornmnet";
 import {Driver} from "./Driver";
+import Logger from "../utility/logger/Logger";
+import {level} from "winston";
+import * as url from "../utility/env/env.json";
 
 const fs = require("fs-extra");
 
 let browser: Browser
 let browserContext: BrowserContext;
+let env = "";
 BeforeAll(async function () {
-    getEnvironment();
+    env = process.env.npm_config_ENV;
+    if (!env.startsWith('api')) {
+        getEnvironment();
+    }
     browser = await getBrowser();
-
 });
-
 Before(async function ({pickle}) {
     const scenarioName = pickle.name + pickle.id
     browserContext = await browser.newContext({
@@ -25,7 +30,8 @@ Before(async function ({pickle}) {
         name: scenarioName,
         title: pickle.name,
         sources: true,
-        screenshots: true, snapshots: true
+        screenshots: true,
+        snapshots: true
     });
     const [page] = await Promise.all([browserContext.newPage()]);
     Driver.page = page;
@@ -35,12 +41,12 @@ After(async function ({pickle, result}) {
     let videoPath: string;
     let img: Buffer;
     const path = `./test-results/trace/${pickle.id}.zip`;
-    if (result?.status == Status.FAILED) {
+    if (result?.status == Status.FAILED && !env.startsWith('api')) {
         img = await Driver.page.screenshot(
             {path: `./test-results/screenshots/${pickle.name}.png`, type: "png"})
         videoPath = await Driver.page.video().path();
     }
-    if (result?.status == Status.FAILED) {
+    if (result?.status == Status.FAILED && !env.startsWith('api')) {
         this.attach(
             img, "image/png"
         );

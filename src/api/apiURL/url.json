@@ -1,0 +1,10 @@
+{
+  "baseUrl": {
+    "apiQA": "https://jsonplaceholder.typicode.com",
+    "PROD": "prod URL"
+  },
+  "endPoint": {
+    "getUsers": "/users",
+    "savePost": "/posts"
+  }
+}

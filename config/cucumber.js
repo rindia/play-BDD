@@ -1,15 +1,15 @@
 module.exports = {
     default: {
-        tags: process.env.npm_config_TAGS || "@test",
+        tags: process.env.npm_config_TAGS || "@api",
         formatOptions: {
             snippetInterface: "async-await"
         },
         paths: [
-            "src/test/feature/"
+            "src/test/feature/**/*.feature"
         ],
         dryRun: false,
         require: [
-            "src/test/steps/*.ts",
+            "src/test/steps/**/*.ts",
             "src/hooks/hooks.ts"
         ],
         requireModule: [
@@ -17,14 +17,14 @@ module.exports = {
         ],
         format: [
             "progress-bar",
-            // "html:test-results/cucumber-report.html",
-            // "json:test-results/cucumber-report.json",
+            "html:test-results/cucumber-report.html",
+            "json:test-results/cucumber-report.json",
             "rerun:@rerun.txt"
         ],
         'format-options': {
             colorsEnabled: false,
         },
-        parallel: 2
+        parallel: parseInt(process.env.npm_config_PARALLEL || '1', 10)
     },
     rerun: {
         formatOptions: {
@@ -39,12 +39,12 @@ module.exports = {
         requireModule: [
             "ts-node/register"
         ],
-        // format: [
-        //     "progress-bar",
-        //     "html:test-results/cucumber-report.html",
-        //     "json:test-results/cucumber-report.json",
-        //     "rerun:@rerun.txt"
-        // ],
-        parallel: 1
+        format: [
+            "progress-bar",
+            "html:test-results/cucumber-report.html",
+            "json:test-results/cucumber-report.json",
+            "rerun:@rerun.txt"
+        ],
+        parallel: process.env.npm_config_PARALLEL || 1
     }
 }
