@@ -1,8 +1,11 @@
 #!/bin/bash
 
-# Use the environment variables in your script
+if [ -z "$ENV" ] || [ -z "$TAGS" ]; then
+  echo "Error: ENV and TAGS environment variables must be set."
+  exit 1
+fi
+
+
 echo "Environment: $ENV"
 echo "Tags: $TAGS"
 
-# Add the rest of your entrypoint script logic here
-# ...
