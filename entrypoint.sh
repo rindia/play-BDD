@@ -1,11 +1,16 @@
 #!/bin/bash
 
-if [ -z "$ENV" ] || [ -z "$TAGS" ]; then
-  echo "Error: ENV and TAGS environment variables must be set."
-  exit 1
+# Default values
+ENV_VAR="apiQA"
+TAGS_VAR="@api"
+
+if [ -n "$ENV" ]; then
+  ENV_VAR="$ENV"
 fi
 
-
-echo "Environment: $ENV"
-echo "Tags: $TAGS"
+if [ -n "$TAGS" ]; then
+  TAGS_VAR="$TAGS"
+fi
+echo npm run test:reportPortal --ENV="$ENV_VAR" --TAGS="$TAGS_VAR"
+npm run test:reportPortal --ENV="$ENV_VAR" --TAGS="$TAGS_VAR"
 
