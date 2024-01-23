@@ -1,4 +1,3 @@
-@test
 Feature: validate api functionality
 
   @api
