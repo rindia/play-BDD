@@ -28,7 +28,7 @@ if [ -n "$LAUNCH" ]; then
 fi
 
 echo "enviornment values"
-echo npm_config_ENV=$ENV_VAR  npm_config_TAGS=$TAGS_VAR npm_config_BROWSER=$BROWSER_VAR npm_config_PARALLEL=$PARALLEL_VAR npm_config_HEADLESS="true"
+echo npm_config_ENV=$ENV_VAR  npm_config_TAGS=$TAGS_VAR npm_config_BROWSER=$BROWSER_VAR npm_config_PARALLEL=$PARALLEL_VAR npm_config_HEADLESS="true" npm_config_LAUNCH=$LAUNCH_VAR
 
 npx cross-env npm_config_ENV=$ENV_VAR  npm_config_TAGS=$TAGS_VAR npm_config_BROWSER=$BROWSER_VAR npm_config_PARALLEL=$PARALLEL_VAR npm_config_HEADLESS="true" npm_config_LAUNCH=$LAUNCH_VAR npm run test:reportPortal
 
