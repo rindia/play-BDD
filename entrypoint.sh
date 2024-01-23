@@ -22,6 +22,8 @@ if [ -n "$PARALLE" ]; then
   PARALLEL_VAR="$PARALLE"
 fi
 
-echo npx cross-env npm_config_ENV=$ENV_VAR  npm_config_TAGS=$TAGS_VAR npm_config_BROWSER=$BROWSER_VAR npm_config_PARALLE=$PARALLE_VAR npm_config_HEADLESS="true" npm run test:reportPortal
-npx cross-env npm_config_ENV=$ENV_VAR  npm_config_TAGS=$TAGS_VAR npm_config_BROWSER=$BROWSER_VAR npm_config_PARALLE=$PARALLE_VAR npm_config_HEADLESS="true" npm run test:reportPortal
+echo "enviornment values"
+echo npm_config_ENV=$ENV_VAR  npm_config_TAGS=$TAGS_VAR npm_config_BROWSER=$BROWSER_VAR npm_config_PARALLEL=$PARALLEL_VAR npm_config_HEADLESS="true"
+
+npx cross-env npm_config_ENV=$ENV_VAR  npm_config_TAGS=$TAGS_VAR npm_config_BROWSER=$BROWSER_VAR npm_config_PARALLEL=$PARALLEL_VAR npm_config_HEADLESS="true" npm run test:reportPortal
 
