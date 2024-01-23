@@ -6,7 +6,7 @@ pipeline {
         string(name: 'TAGS', defaultValue: '@api', description: 'Tags')
         choice(name: 'BROWSER', choices: ['chrome', 'firefox', 'webkit'], description: 'Browser type')
         string(name: 'PARALLEL', defaultValue: '1', description: 'Parallel browsers')
-        choice(name: 'LAUNCH', choices: ['BDD-playwright api', 'BDD-playwright web'], description: 'Execution launch name in report')
+        choice(name: 'LAUNCH', choices: ['BDD-playwright-api', 'BDD-playwright-web'], description: 'Execution launch name in report')
     }
 
     stages {
