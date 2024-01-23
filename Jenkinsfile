@@ -10,15 +10,15 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                   docker build -t play-bdd:local .
+                  sh 'docker build -t play-bdd:local .'
                 }
             }
         }
 
-        stage('Run Tests in Docker conatiner') {
+        stage('Run Tests in Docker container') {
             steps {
                 script {
-                  docker run --rm play-bdd:local -e ENV=${ENV} -e TAGS=${TAGS}
+                 sh 'docker run --rm play-bdd:local -e ENV=${ENV} -e TAGS=${TAGS}'
                 }
             }
         }
