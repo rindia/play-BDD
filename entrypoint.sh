@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Default values
-ENV_VAR="apiQA"
-TAGS_VAR="@api"
+ENV_VAR=""
+TAGS_VAR=""
 
 if [ -n "$ENV" ]; then
   ENV_VAR="$ENV"
