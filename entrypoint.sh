@@ -18,8 +18,8 @@ if [ -n "$BROWSER" ]; then
   BROWSER_VAR="$BROWSER"
 fi
 
-if [ -n "$PARALLE" ]; then
-  PARALLEL_VAR="$PARALLE"
+if [ -n "$PARALLEL" ]; then
+  PARALLEL_VAR="$PARALLEL"
 fi
 
 echo "enviornment values"
