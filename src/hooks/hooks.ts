@@ -14,6 +14,7 @@ let browserContext: BrowserContext;
 let env = "";
 BeforeAll(async function () {
     env = process.env.npm_config_ENV;
+    console.log("env +++++++++++++ , env")
    if (env && !env.startsWith('api')) {
     getEnvironment();
 }
