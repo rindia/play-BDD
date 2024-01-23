@@ -14,9 +14,9 @@ let browserContext: BrowserContext;
 let env = "";
 BeforeAll(async function () {
     env = process.env.npm_config_ENV;
-    if (!env.startsWith('api')) {
-        getEnvironment();
-    }
+   if (env && !env.startsWith('api')) {
+    getEnvironment();
+}
     browser = await getBrowser();
 });
 Before(async function ({pickle}) {
