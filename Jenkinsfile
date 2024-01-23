@@ -18,7 +18,7 @@ pipeline {
         stage('Run Tests in Docker container') {
             steps {
                 script {
-                 sh "docker run --rm -it -e ENV=${ENV} -e TAGS=${TAGS} play-bdd:local"
+                 sh "docker run --rm -e ENV=${ENV} -e TAGS=${TAGS} play-bdd:local"
                 }
             }
         }
