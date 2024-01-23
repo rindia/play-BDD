@@ -23,5 +23,5 @@ if [ -n "$PARALLE" ]; then
 fi
 
 echo npx cross-env npm_config_ENV=$ENV_VAR  npm_config_TAGS=$TAGS_VAR npm run test:reportPortal
-npx cross-env npm_config_ENV=$ENV_VAR  npm_config_TAGS=$TAGS_VAR npm_config_BROWSER=$BROWSER_VAR npm_config_PARALLE=$PARALLE_VAR npm run test:reportPortal
+npx cross-env npm_config_ENV=$ENV_VAR  npm_config_TAGS=$TAGS_VAR npm_config_BROWSER=$BROWSER_VAR npm_config_PARALLE=$PARALLE_VAR npm_config_HEADLESS="true" npm run test:reportPortal
 
