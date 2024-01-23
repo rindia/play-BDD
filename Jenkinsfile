@@ -20,7 +20,7 @@ pipeline {
         stage('Run Tests in Docker container') {
             steps {
                 script {
-                  sh "docker run --rm -e ENV=\"${ENV}\" -e TAGS=\"${TAGS}\" -e BROWSER=\"${BROWSER}\" -e PARALLEL=\"${PARALLEL}\" -e HEADLESS="true" play-bdd:local"
+                  sh "docker run --rm -e ENV=\"${ENV}\" -e TAGS=\"${TAGS}\" -e BROWSER=\"${BROWSER}\" -e PARALLEL=\"${PARALLEL}\" play-bdd:local"
                 }
             }
         }
