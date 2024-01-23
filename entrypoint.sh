@@ -12,4 +12,4 @@ if [ -n "$TAGS" ]; then
   TAGS_VAR="$TAGS"
 fi
 
-npm run test:reportPortal --ENV="$ENV_VAR" --TAGS="$TAGS_VAR"
+npm run test:reportPortal --ENV=\"${ENV_VAR}\" --TAGS=\"${TAGS_VAR}\"
