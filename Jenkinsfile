@@ -2,10 +2,11 @@ pipeline {
     agent any
 
     parameters {
-        string(name: 'ENV', defaultValue: 'apiQA', description: 'Environment')
+        choice(name: 'ENV', choices: ['apiQA', 'webQA'], description: 'Environment')
         string(name: 'TAGS', defaultValue: '@api', description: 'Tags')
-        string(name: 'BROWSER', defaultValue: 'chrome', description: 'browser type')
-        string(name: 'PARALLEL', defaultValue: '1', description: 'PARALLEL browser')
+        choice(name: 'BROWSER', choices: ['chrome', 'firefox', 'webkit'], description: 'Browser type')
+        string(name: 'PARALLEL', defaultValue: '1', description: 'Parallel browsers')
+        choice(name: 'LAUNCH', choices: ['BDD-playwright api', 'BDD-playwright web'], description: 'Execution launch name in report')
     }
 
     stages {
@@ -20,7 +21,7 @@ pipeline {
         stage('Run Tests in Docker container') {
             steps {
                 script {
-                  sh "docker run --rm -e ENV=\"${ENV}\" -e TAGS=\"${TAGS}\" -e BROWSER=\"${BROWSER}\" -e PARALLEL=\"${PARALLEL}\" play-bdd:local"
+                  sh "docker run --rm -e ENV=\"${ENV}\" -e TAGS=\"${TAGS}\" -e BROWSER=\"${BROWSER}\" -e PARALLEL=\"${PARALLEL}\" -e LAUNCH=\"${LAUNCH}\" play-bdd:local"
                 }
             }
         }
