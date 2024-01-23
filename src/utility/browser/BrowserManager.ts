@@ -1,7 +1,7 @@
 import { LaunchOptions, chromium, firefox, webkit } from "@playwright/test";
 
 const options: LaunchOptions = {
-    headless: headless: process.env.npm_config_HEADLESS === "true" || true,
+    headless: process.env.npm_config_HEADLESS === "true" || true,
     timeout: 30000
 }
 
