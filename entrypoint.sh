@@ -13,4 +13,4 @@ if [ -n "$TAGS" ]; then
 fi
 echo "+++++++++++++++"
 echo ENV=\"${ENV_VAR}\" TAGS=\"${TAGS_VAR}\" npm run test:reportPortal 
-ENV=\"${ENV_VAR}\" TAGS=\"${TAGS_VAR}\" npm run test:reportPortal 
+ npm run test:reportPortal --ENV=\"${ENV_VAR}\" --TAGS=\"${TAGS_VAR}\"
