@@ -11,6 +11,6 @@ fi
 if [ -n "$TAGS" ]; then
   TAGS_VAR="$TAGS"
 fi
-echo npm run test:reportPortal --ENV="$ENV_VAR" --TAGS="$TAGS_VAR"
-npm run test:reportPortal --ENV="$ENV_VAR" --TAGS="$TAGS_VAR"
+echo npm run test:reportPortal ENV="$ENV_VAR" TAGS="$TAGS_VAR"
+npm run test:reportPortal ENV="$ENV_VAR" TAGS="$TAGS_VAR"
 
