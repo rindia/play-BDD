@@ -1,7 +1,10 @@
 name: Workflow
 on: push
+
 jobs:
-    my-first-job:
-         runs-on: ubuntu-latest
-         steps:
-            - run: echo "hello world"
+  echo:
+    runs-on: ubuntu-latest
+    steps:
+       - name: show trigger
+         run: echo "hello world"
+    
